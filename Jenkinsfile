@@ -9,13 +9,17 @@ pipeline {
             }
         }   
 
-        stage('Build') {
+     
+    
+     stage('npm install') {
             steps {
-                echo 'Building..'
+                sh '''
+                    npm install --verbose -d 
+                    npm install --save classlist.js
+                '''
+                echo 'npm install ..'
             }
         }
-    
-    
 
         stage('Test') {
             steps {
@@ -31,15 +35,7 @@ pipeline {
       }
     }
 
-        stage('npm install') {
-            steps {
-                sh '''
-                    npm install --verbose -d 
-                    npm install --save classlist.js
-                '''
-                echo 'npm install ..'
-            }
-        }
+       
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
