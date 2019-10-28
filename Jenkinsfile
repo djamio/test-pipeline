@@ -24,8 +24,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'npm run ng build
-'
+                sh 'npm run ng build'
                 echo 'Testing..'
             }
         }
