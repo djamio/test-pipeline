@@ -17,7 +17,7 @@ pipeline {
         
         stage ('code quality'){
       steps{
-        sh '$(npm bin)/ng lint'
+                sh 'npm run ng lint'
       }
     }
     
