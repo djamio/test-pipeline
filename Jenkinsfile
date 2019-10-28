@@ -21,6 +21,14 @@ pipeline {
             }
         }
 
+        stage('build') {
+            steps {
+                sh 'npm run ng -- build'
+                echo 'building..'
+            }
+        }
+
+
         stage('Test') {
             steps {
                 sh 'npm run ng -- test'
