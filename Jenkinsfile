@@ -14,20 +14,22 @@ pipeline {
                 echo 'Building..'
             }
         }
-        
+    
+    
+
+        stage('Test') {
+            steps {
+                sh 'npm run ng test'
+                echo 'Testing..'
+            }
+        }
+
+            
         stage ('code quality'){
       steps{
                 sh 'npm run ng lint'
       }
     }
-    
-
-        stage('Test') {
-            steps {
-                sh 'npm run ng build'
-                echo 'Testing..'
-            }
-        }
 
         stage('npm install') {
             steps {
