@@ -7,8 +7,16 @@ pipeline {
                 echo 'Building..'
             }
         }
+        stage('npm install') {
+            steps {
+                sh 'npm install'
+                echo 'npm install..'
+            }
+        }
+
         stage('Test') {
             steps {
+                sh 'ng test'
                 echo 'Testing..'
             }
         }
