@@ -19,7 +19,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'npm run ng test'
+                sh 'npm run ng -- test'
                 echo 'Testing..'
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             
         stage ('code quality'){
       steps{
-                sh 'npm run ng lint'
+                sh 'npm run ng -- lint'
       }
     }
 
