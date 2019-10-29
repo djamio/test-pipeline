@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+   node {
+    def nodeHome = tool name: 'node-11.0.0', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+    env.PATH = "${nodeHome}/bin:${env.PATH}"
+
 
     stages {
 
@@ -50,4 +53,5 @@ pipeline {
             }
         }
     }
+}
 }
