@@ -16,15 +16,15 @@ pipeline {
 
      
     
-    //  stage('npm install') {
-    //         steps {
-    //             sh '''
-    //                 npm install --verbose -d 
-    //                 npm install --save classlist.js
-    //             '''
-    //             echo 'npm install ..'
-    //         }
-    //     }
+     stage('npm install') {
+            steps {
+                sh '''
+                    npm install --verbose -d 
+                    npm install --save classlist.js
+                '''
+                echo 'npm install ..'
+            }
+        }
 
     //     stage('build') {
     //         steps {
@@ -36,12 +36,11 @@ pipeline {
 
         stage('Test') {
             steps {
+                echo 'Testing..'
                 sh ''' 
-
                 export CHROME_BIN=/usr/bin/chromium-browser
                 npm run ng -- test --code-coverage --browsers ChromeHeadless
                 '''
-                echo 'Testing..'
             }
         }
 
