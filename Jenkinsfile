@@ -42,6 +42,11 @@ pipeline {
                 npm run ng -- test --code-coverage --browsers ChromeHeadless
                 '''
             }
+            post {
+                always {
+                    junit 'reports/karma/HeadlessChrome_77.0.3865_(Ubuntu_0.0.0)/report.xml'
+                }
+            }
         }
 
             
