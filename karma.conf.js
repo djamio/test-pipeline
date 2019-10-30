@@ -21,7 +21,8 @@ module.exports = function (config) {
     reporters: ['progress', 'junit'],
     // the default configuration
     junitReporter: {
-      outputFile: 'test_out/unit.xml',
+      outputDir: 'reports/karma',
+      outputFile: 'report.xml',
       suite: 'unit'
     },
     port: 9876,
