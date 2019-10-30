@@ -47,7 +47,18 @@ pipeline {
                     junit 'reports/karma/HeadlessChrome_77.0.3865_(Ubuntu_0.0.0)/report.xml'
                 }
             }
-        }
+            post {
+                always {
+                    publishHTML target: [
+                        allowMissing         : false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll             : true,
+                        reportDir            : 'coverage/test-pipeline',
+                        reportFiles          : 'index.html',
+                        reportName           : 'Test Report'
+                    ]
+                }
+            }
 
             
         stage ('code quality'){
