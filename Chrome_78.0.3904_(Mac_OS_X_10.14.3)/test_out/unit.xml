@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 78.0.3904 (Mac OS X 10.14.3)" package="unit" timestamp="2019-10-30T09:37:47" id="0" hostname="MacBook-Air-de-Amine.local" tests="3" errors="0" failures="0" time="0.457">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36"/>
+  </properties>
+  <testcase name="AppComponent should create the app" time="0.239" classname="Chrome_78_0_3904_(Mac_OS_X_10_14_3)..AppComponent"/>
+  <testcase name="AppComponent should render title" time="0.14" classname="Chrome_78_0_3904_(Mac_OS_X_10_14_3)..AppComponent"/>
+  <testcase name="AppComponent should have as title 'test-pipeline'" time="0.078" classname="Chrome_78_0_3904_(Mac_OS_X_10_14_3)..AppComponent"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

@@ -36,7 +36,11 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'npm run ng -- test --code-coverage --browsers ChromeHeadless'
+                sh ''' 
+
+                export CHROME_BIN=/usr/bin/chromium-browser
+                npm run ng -- test --code-coverage --browsers ChromeHeadless
+                '''
                 echo 'Testing..'
             }
         }
