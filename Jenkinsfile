@@ -59,6 +59,7 @@ pipeline {
                     ]
                 }
             }
+        }
 
             
         stage ('code quality'){
