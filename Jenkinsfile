@@ -39,7 +39,7 @@ pipeline {
                 echo 'Testing..'
                 sh ''' 
                 export CHROME_BIN=/usr/bin/chromium-browser
-                npm run ng -- test --code-coverage
+                npm run ng -- test --code-coverage --browsers ChromeHeadless
                 '''
             }
         }
