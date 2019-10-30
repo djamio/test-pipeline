@@ -34,12 +34,12 @@ pipeline {
     //     }
 
 
-        // stage('Test') {
-        //     steps {
-        //         sh 'npm run ng -- test'
-        //         echo 'Testing..'
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                sh 'npm run ng -- test --code-coverage --browsers ChromeHeadless'
+                echo 'Testing..'
+            }
+        }
 
             
         stage ('code quality'){
