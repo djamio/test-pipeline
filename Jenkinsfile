@@ -25,7 +25,10 @@ pipeline {
 
 
 stage('Build Docker Image'){
+                steps {
+
     sh 'docker build -t djamio/test-docker:0.0.1 .'
+  }
   }
 
 //   stage('Upload Image to DockerHub'){
@@ -35,6 +38,8 @@ stage('Build Docker Image'){
 //     sh 'docker push djamio/test-docker:0.0.1'
 //   }
   stage('Remove Old Containers'){
+                  steps {
+
     sshagent(['test-docker-dev']) {
       try{
         def sshCmd = 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.18.198'
@@ -43,6 +48,7 @@ stage('Build Docker Image'){
       }catch(error){
 
       }
+    }
     }
   }
 
