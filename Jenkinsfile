@@ -14,17 +14,52 @@ pipeline {
             }
         }   
 
-     
-    
-     stage('npm install') {
+     stage('build docker') {
             steps {
                 sh '''
-                    npm install --verbose -d 
-                    npm install --save classlist.js
+                    docker build .
                 '''
-                echo 'npm install ..'
+                echo 'docker build ..'
             }
         }
+
+
+stage('Build Docker Image'){
+    sh 'docker build -t djamio/test-docker:0.0.1 .'
+  }
+
+  stage('Upload Image to DockerHub'){
+    withCredentials([string(credentialsId: 'docker-hub', variable: 'password')]) {
+      sh "docker login -u djamio -p ${password}"
+    }
+    sh 'docker push djamio/test-docker:0.0.1'
+  }
+  stage('Remove Old Containers'){
+    sshagent(['test-docker-dev']) {
+      try{
+        def sshCmd = 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.18.198'
+        def dockerRM = 'docker rm -f test-docker'
+        sh "${sshCmd} ${dockerRM}"
+      }catch(error){
+
+      }
+    }
+  }
+
+
+
+
+
+    
+    //  stage('npm install') {
+    //         steps {
+    //             sh '''
+    //                 npm install --verbose -d 
+    //                 npm install --save classlist.js
+    //             '''
+    //             echo 'npm install ..'
+    //         }
+    //     }
 
     //     stage('build') {
     //         steps {
