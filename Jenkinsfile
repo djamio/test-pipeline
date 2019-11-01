@@ -36,15 +36,6 @@ stage('build docker') {
         }
 
 
-stage('build docker') {
-            steps {
-                sh '''
-                    docker run .
-                '''
-                echo 'docker build install ..'
-            }
-        }
-
 
 
 
