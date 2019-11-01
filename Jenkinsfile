@@ -14,7 +14,19 @@ pipeline {
             }
         }   
 
-     stage('build docker') {
+     stage('npm install') {
+            steps {
+                sh '''
+                    npm install --verbose -d 
+                    npm install --save classlist.js
+                '''
+                echo 'npm install ..'
+            }
+        }
+
+
+
+stage('build docker') {
             steps {
                 sh '''
                     docker build .
@@ -32,7 +44,6 @@ stage('build docker') {
                 echo 'docker build install ..'
             }
         }
-
 
 
 
