@@ -29,7 +29,7 @@ stage('Build Docker Image'){
   }
 
   stage('Upload Image to DockerHub'){
-    withCredentials([string(credentialsId: 'docker-hub', variable: 'password')]) {
+    withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
       sh "docker login -u djamio -p ${password}"
     }
     sh 'docker push djamio/test-docker:0.0.1'
