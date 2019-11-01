@@ -29,7 +29,7 @@ pipeline {
 stage('build docker') {
             steps {
                 sh '''
-                    docker build .
+                    sudo docker build .
                 '''
                 echo 'docker build install ..'
             }
