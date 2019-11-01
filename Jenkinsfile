@@ -19,38 +19,19 @@ pipeline {
                 sh '''
                     docker build .
                 '''
-                echo 'docker build ..'
+                echo 'docker build install ..'
             }
         }
 
 
-stage('Build Docker Image'){
-                steps {
-
-    sh 'docker build -t djamio/test-docker:0.0.1 .'
-  }
-  }
-
-//   stage('Upload Image to DockerHub'){
-//     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-//       sh "docker login -u djamio -p ${password}"
-//     }
-//     sh 'docker push djamio/test-docker:0.0.1'
-//   }
-  stage('Remove Old Containers'){
-                  steps {
-
-    sshagent(['test-docker-dev']) {
-      try{
-        def sshCmd = 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.18.198'
-        def dockerRM = 'docker rm -f test-docker'
-        sh "${sshCmd} ${dockerRM}"
-      }catch(error){
-
-      }
-    }
-    }
-  }
+stage('build docker') {
+            steps {
+                sh '''
+                    docker run .
+                '''
+                echo 'docker build install ..'
+            }
+        }
 
 
 
