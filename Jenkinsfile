@@ -28,12 +28,12 @@ stage('Build Docker Image'){
     sh 'docker build -t djamio/test-docker:0.0.1 .'
   }
 
-  stage('Upload Image to DockerHub'){
-    withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-      sh "docker login -u djamio -p ${password}"
-    }
-    sh 'docker push djamio/test-docker:0.0.1'
-  }
+//   stage('Upload Image to DockerHub'){
+//     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+//       sh "docker login -u djamio -p ${password}"
+//     }
+//     sh 'docker push djamio/test-docker:0.0.1'
+//   }
   stage('Remove Old Containers'){
     sshagent(['test-docker-dev']) {
       try{
