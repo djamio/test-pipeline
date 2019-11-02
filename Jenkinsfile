@@ -79,7 +79,7 @@ withCredentials([[
                                       sh '''
             docker push djamio/docker-test:2.0.0
                                       '''
-
+//
                 // '''
                 echo 'run docker image ..'
             }
