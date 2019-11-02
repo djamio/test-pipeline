@@ -26,6 +26,17 @@ pipeline {
 
 
 
+stage('Stop running image') {
+            steps {
+                sh '''
+                    docker stop djamio/docker-test:1.0
+                '''
+                echo 'stop image ..'
+            }
+        }
+
+
+
 stage('build docker') {
             steps {
                 sh '''
@@ -39,7 +50,6 @@ stage('build docker') {
 stage('run docker image') {
             steps {
                 sh '''
-                    docker stop djamio/docker-test:1.0
                     docker run  -d -p 80:80 djamio/docker-test:1.0
                 '''
                 echo 'run docker image ..'
