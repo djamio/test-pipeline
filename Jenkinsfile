@@ -46,6 +46,32 @@ stage('run docker image') {
         }
         
 
+stage('push docker image to dockerhub') {
+            steps {
+                // sh '''
+                    
+
+withCredentials([[
+                   credentialsId : 'dockerhub',                                                 
+                   secretKeyVariable: 'KEY_1'
+                                     ]]) { 
+                                         
+                        sh '''
+                            docker login -u djamio/docker-test -p ${KEY_1}
+                        '''
+                                      }
+                                      sh '''
+            docker push djamio/docker-test:2.0.0
+                                      '''
+
+                // '''
+                echo 'run docker image ..'
+            }
+        }
+        
+
+
+
 
 
 
