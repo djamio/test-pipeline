@@ -36,6 +36,16 @@ stage('build docker') {
         }
 
 
+stage('run docker image') {
+            steps {
+                sh '''
+                    docker run  -d -p 80:80 djamio/docker-test:1.0 .
+                '''
+                echo 'run docker image ..'
+            }
+        }
+        
+
 
 
 
