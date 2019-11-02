@@ -14,15 +14,15 @@ pipeline {
             }
         }   
 
-     stage('npm install') {
-            steps {
-                sh '''
-                    npm install --verbose -d 
-                    npm install --save classlist.js
-                '''
-                echo 'npm install ..'
-            }
-        }
+    //  stage('npm install') {
+    //         steps {
+    //             sh '''
+    //                 npm install --verbose -d 
+    //                 npm install --save classlist.js
+    //             '''
+    //             echo 'npm install ..'
+    //         }
+    //     }
 
 
 
