@@ -58,7 +58,7 @@ stage('run docker image') {
                 '''
                 echo 'run docker image ..'
             }
-        }
+        } 
         
 
 stage('push docker image to dockerhub') {
