@@ -67,6 +67,7 @@ stage('push docker image to dockerhub') {
                     
 
 withCredentials([[
+    $class: 'UsernamePasswordMultiBinding',
                    credentialsId : 'dockerhub',                                                 
                    secretKeyVariable: 'KEY_1'
                                      ]]) { 
