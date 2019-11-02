@@ -26,15 +26,18 @@ pipeline {
 
 
 
-stage('Stop running image') {
-            steps {
-                sh '''
-                    docker stop $(docker ps -a -q)
-                    docker rm $(docker ps -a -q)
-                '''
-                echo 'stop image ..'
-            }
-        }
+// stage('Stop running image') {
+
+//             steps {
+//                 def ret
+
+//                 sh '''
+//                     docker stop $(docker ps -a -q)
+//                     docker rm $(docker ps -a -q)
+//                 '''
+//                 echo 'stop image ..'
+//             }
+//         }
 
 
 
