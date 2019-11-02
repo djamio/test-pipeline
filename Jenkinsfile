@@ -29,7 +29,8 @@ pipeline {
 stage('Stop running image') {
             steps {
                 sh '''
-                    docker stop djamio/docker-test:1.0
+                    docker stop $(docker ps -a -q)
+                    docker rm $(docker ps -a -q)
                 '''
                 echo 'stop image ..'
             }
